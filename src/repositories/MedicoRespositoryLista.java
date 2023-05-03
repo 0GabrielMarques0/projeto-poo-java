@@ -7,7 +7,6 @@ public class MedicoRespositoryLista implements MedicoRepository{
     public void criar(Medico medico) {
 
     }
-
     @Override
     public Medico buscar(String crm) {
         return null;

@@ -1,22 +1,22 @@
 package models;
 
 public class Paciente extends Pessoa {
-    private double numCarteira;
+    private String numCarteira;
 
     public Paciente() {
 
     }
 
-    public Paciente(String nome, String cfp, Endereco endereco, double numCarteira) {
+    public Paciente(String nome, String cfp, Endereco endereco, String numCarteira) {
         super(nome, cfp, endereco);
         this.numCarteira = numCarteira;
     }
 
-    public double getNumCarteira() {
+    public String getNumCarteira() {
         return numCarteira;
     }
 
-    public void setNumCarteira(double numCarteira) {
+    public void setNumCarteira(String numCarteira) {
         this.numCarteira = numCarteira;
     }
 }
