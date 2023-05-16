@@ -7,8 +7,8 @@ public class Paciente extends Pessoa {
 
     }
 
-    public Paciente(String nome, String cfp, Endereco endereco, String numCarteira) {
-        super(nome, cfp, endereco);
+    public Paciente(String nome, String cpf, Endereco endereco, String numCarteira) {
+        super(nome, cpf, endereco);
         this.numCarteira = numCarteira;
     }
 

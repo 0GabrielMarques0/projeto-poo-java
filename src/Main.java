@@ -1,3 +1,4 @@
+import models.Endereco;
 import models.Medico;
 import models.Paciente;
 import models.Pessoa;
@@ -27,6 +28,36 @@ public class Main {
                     escolhaMedico = in.nextInt();
                     if (escolhaMedico != 1 && escolhaMedico != 2 && escolhaMedico != 3 && escolhaMedico != 4 && escolhaMedico != 5){
                         System.out.println("Opção digitada invalida, tente novamente");
+                    } else if (escolha == 1) {
+                        System.out.println("Digite o seu nome:");
+                        String nome = in.nextLine();
+                        System.out.println("Digite o seu CPF:");
+                        String cpf = in.nextLine();
+                        System.out.println("Digite sua rua:");
+                        String rua = in.nextLine();
+                        System.out.println("Digite seu bairro:");
+                        String bairro = in.nextLine();
+                        System.out.println("Digite sua cidade:");
+                        String cidade = in.nextLine();
+                        System.out.println("Digite seu estado:");
+                        String estado = in.nextLine();
+                        System.out.println("Digite seu CEP:");
+                        String cep = in.nextLine();
+                        System.out.println("Digite seu número:");
+                        String numero = in.nextLine();
+                        System.out.println("Digite seu complemento:");
+                        String complemento = in.nextLine();
+                        System.out.println("Digite o CRM:");
+                        String crm = in.nextLine();
+                        System.out.println("Digite sua especialidade:");
+                        String especialidade = in.nextLine();
+                        Pessoa medico = new Medico(nome, cpf, new Endereco(rua,bairro,cidade,estado,cep,numero,complemento), crm, especialidade);
+                    } else if (escolha == 2) {
+
+                    } else if (escolha == 3) {
+
+                    } else if (escolha == 4) {
+
                     }
                 }while (escolhaMedico != 5);
             } else if (escolha == 2) {
@@ -35,14 +66,5 @@ public class Main {
                 System.out.println("----- Obrigado por escolher a clinica, até a próxima! -----");
             }
         }while (escolha != 3);
-
-
-        Pessoa medico = new Medico();
-        Pessoa paciente = new Paciente();
-
-        //MedicoRepository medicoRepository = new MedicoRepositoryVetor(10);
-        MedicoRepository medicoRepository = new MedicoRespositoryLista();
-        MedicoService medicoService = new MedicoService(medicoRepository);
-
     }
 }

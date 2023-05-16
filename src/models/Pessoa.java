@@ -2,15 +2,15 @@ package models;
 
 public class Pessoa{
     private String nome;
-    private String cfp;
+    private String cpf;
     private Endereco endereco;
 
     public Pessoa() {
     }
 
-    public Pessoa(String nome, String cfp, Endereco endereco) {
+    public Pessoa(String nome, String cpf, Endereco endereco) {
         this.nome = nome;
-        this.cfp = cfp;
+        this.cpf = cpf;
         this.endereco = endereco;
     }
 
@@ -23,11 +23,11 @@ public class Pessoa{
     }
 
     public String getCfp() {
-        return cfp;
+        return cpf;
     }
 
     public void setCfp(String cfp) {
-        this.cfp = cfp;
+        this.cpf = cpf;
     }
 
     public Endereco getEndereco() {
