@@ -16,7 +16,13 @@ public class MedicoRepositoryVetor implements MedicoRepository{
 
     @Override
     public Medico buscar(String crm) {
-        return null;
+        Medico medico1 =  null;
+        for (int i=0;i< medico.length; i++){
+            if (medico[i].getCrm().equals(crm)){
+                medico1 = medico[i];
+            }
+        }
+        return medico1;
     }
 
     @Override

@@ -12,12 +12,14 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
+        MedicoRepository medicoRepository = new MedicoRepositoryVetor(5);
+        MedicoService medicoService = new MedicoService(medicoRepository);
 
         int escolha;
         do{
             System.out.println("----- Bem vindo ao sistema da clinica -----\n" +
                     "Entrar como:\nMédico(1)\nPaciente(2)\nSair(3)");
-            escolha = in.nextInt();
+            escolha = Integer.parseInt(in.nextLine());
             int escolhaMedico;
             if (escolha != 1 && escolha != 2 && escolha != 3) {
                 System.out.println("Opção digitada invalida, tente novamente");
@@ -25,10 +27,10 @@ public class Main {
                 do{
                     System.out.println("----- Olá doutor(a), o que deseja fazer? -----\n1 - Cadastrar novo médico\n" +
                             "2 - Buscar médico\n3 - Alterar cadastro\n4 - Deletar um cadastro\n5 - Voltar ao menu inicial");
-                    escolhaMedico = in.nextInt();
+                    escolhaMedico = Integer.parseInt(in.nextLine());
                     if (escolhaMedico != 1 && escolhaMedico != 2 && escolhaMedico != 3 && escolhaMedico != 4 && escolhaMedico != 5){
                         System.out.println("Opção digitada invalida, tente novamente");
-                    } else if (escolha == 1) {
+                    } else if (escolhaMedico == 1) {
                         System.out.println("Digite o seu nome:");
                         String nome = in.nextLine();
                         System.out.println("Digite o seu CPF:");
@@ -52,11 +54,14 @@ public class Main {
                         System.out.println("Digite sua especialidade:");
                         String especialidade = in.nextLine();
                         Pessoa medico = new Medico(nome, cpf, new Endereco(rua,bairro,cidade,estado,cep,numero,complemento), crm, especialidade);
-                    } else if (escolha == 2) {
+                    } else if (escolhaMedico == 2) {
+                        System.out.println("Digite o CRM do médico que deseja procurar:");
+                        String crm = in.nextLine();
+                        System.out.println(medicoService.buscar(crm));
 
-                    } else if (escolha == 3) {
+                    } else if (escolhaMedico == 3) {
 
-                    } else if (escolha == 4) {
+                    } else if (escolhaMedico == 4) {
 
                     }
                 }while (escolhaMedico != 5);

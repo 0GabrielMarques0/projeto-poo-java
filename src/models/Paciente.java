@@ -19,4 +19,11 @@ public class Paciente extends Pessoa {
     public void setNumCarteira(String numCarteira) {
         this.numCarteira = numCarteira;
     }
+
+    @Override
+    public String toString() {
+        return "Paciente{" +
+                "numCarteira='" + numCarteira + '\'' +
+                "} " + super.toString();
+    }
 }

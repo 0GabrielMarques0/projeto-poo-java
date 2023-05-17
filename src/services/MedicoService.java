@@ -44,4 +44,7 @@ public class MedicoService {
             medicoRepository.deletar(medico1);
         }
     }
+    public Medico buscar(String crm){
+        return medicoRepository.buscar(crm);
+    }
 }
