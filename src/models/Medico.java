@@ -7,8 +7,8 @@ public class Medico extends Pessoa{
     public Medico() {
     }
 
-    public Medico(String nome, String cfp, Endereco endereco, String crm, String especialidade) {
-        super(nome, cfp, endereco);
+    public Medico(String nome, String cpf, Endereco endereco, String crm, String especialidade) {
+        super(nome, cpf, endereco);
         this.crm = crm;
         this.especialidade = especialidade;
     }
@@ -31,9 +31,8 @@ public class Medico extends Pessoa{
 
     @Override
     public String toString() {
-        return "Medico{" +
-                "crm='" + crm + '\'' +
+        return "crm='" + crm + '\'' +
                 ", especialidade='" + especialidade + '\'' +
-                "} " + super.toString();
+                 super.toString();
     }
 }

@@ -11,7 +11,11 @@ public class MedicoRepositoryVetor implements MedicoRepository{
     }
 
     public void criar(Medico medico){
-
+        for(int i = 0; i < this.medico.length; i++){
+            if(this.medico[i] == null){
+                this.medico[i] = medico;
+            }
+        }
     }
 
     @Override
@@ -27,6 +31,36 @@ public class MedicoRepositoryVetor implements MedicoRepository{
 
     @Override
     public void deletar(Medico medico) {
-
+        if (existe(medico.getCrm())) {
+            for (int i=0;i< this.medico.length; i++){
+                if (this.medico[i].getCrm().equals(medico.getCrm())){
+                    this.medico[i] = null;
+                }
+            }
+        }
     }
+
+    @Override
+    public void atualiza(String crm, Medico medico) {
+        if(existe(crm)){
+            for (int i=0;i< this.medico.length; i++) {
+                if (this.medico[i].getCrm().equals(crm)) {
+                    if (medico.getCrm() != null) {
+                        this.medico[i].setCrm(medico.getCrm());
+                    }
+                }
+            }
+        }
+    }
+
+    @Override
+    public boolean existe(String crm) {
+        for (Medico value : medico) {
+            if (value.getCrm().equals(crm)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

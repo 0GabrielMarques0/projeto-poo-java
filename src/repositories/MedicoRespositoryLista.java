@@ -40,4 +40,14 @@ public class MedicoRespositoryLista implements MedicoRepository{
     public void deletar(Medico crm) {
 
     }
+
+    @Override
+    public void atualiza(String crm, Medico medico) {
+
+    }
+
+    @Override
+    public boolean existe(String crm) {
+        return false;
+    }
 }

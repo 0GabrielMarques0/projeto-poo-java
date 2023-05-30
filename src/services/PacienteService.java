@@ -19,7 +19,7 @@ public class PacienteService {
             throw new CarteiraException();
         } else if (paciente.getNome() != null) {
             throw new NomeException();
-        } else if (paciente.getCfp() != null) {
+        } else if (paciente.getCpf() != null) {
             throw new CPFException();
         } else if (paciente.getEndereco() != null || paciente.getEndereco().getRua() != null ||
                 paciente.getEndereco().getBairro() != null || paciente.getEndereco().getCidade() != null

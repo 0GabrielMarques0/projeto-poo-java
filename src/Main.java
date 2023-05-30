@@ -1,3 +1,4 @@
+import exception.*;
 import models.Endereco;
 import models.Medico;
 import models.Paciente;
@@ -10,7 +11,7 @@ import services.MedicoService;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws EnderecoException, EspecialException, NomeException, CRMException, CPFException {
         Scanner in = new Scanner(System.in);
         MedicoRepository medicoRepository = new MedicoRepositoryVetor(5);
         MedicoService medicoService = new MedicoService(medicoRepository);
@@ -53,14 +54,46 @@ public class Main {
                         String crm = in.nextLine();
                         System.out.println("Digite sua especialidade:");
                         String especialidade = in.nextLine();
-                        Pessoa medico = new Medico(nome, cpf, new Endereco(rua,bairro,cidade,estado,cep,numero,complemento), crm, especialidade);
+                        medicoService.criar( new Medico(nome, cpf, new Endereco(rua,bairro,cidade,estado,cep,numero,complemento), crm, especialidade));
                     } else if (escolhaMedico == 2) {
                         System.out.println("Digite o CRM do médico que deseja procurar:");
                         String crm = in.nextLine();
                         System.out.println(medicoService.buscar(crm));
-
                     } else if (escolhaMedico == 3) {
+                        System.out.println("Digite o CRM do médico que deseja procurar:");
+                        String crm2 = in.nextLine();
+                        System.out.println(medicoService.buscar(crm2));
+                        System.out.println("Deseja alterar o cadastro desse médico?\nSIM(1)\nNÃO(2)\n");
+                        int yes_or_no = Integer.parseInt(in.nextLine());
+                        if (yes_or_no == 1) {
+                            System.out.println("Digite o seu nome:");
+                            String nome = in.nextLine();
+                            System.out.println("Digite o seu CPF:");
+                            String cpf = in.nextLine();
+                            System.out.println("Digite sua rua:");
+                            String rua = in.nextLine();
+                            System.out.println("Digite seu bairro:");
+                            String bairro = in.nextLine();
+                            System.out.println("Digite sua cidade:");
+                            String cidade = in.nextLine();
+                            System.out.println("Digite seu estado:");
+                            String estado = in.nextLine();
+                            System.out.println("Digite seu CEP:");
+                            String cep = in.nextLine();
+                            System.out.println("Digite seu número:");
+                            String numero = in.nextLine();
+                            System.out.println("Digite seu complemento:");
+                            String complemento = in.nextLine();
+                            System.out.println("Digite o CRM:");
+                            String crm = in.nextLine();
+                            System.out.println("Digite sua especialidade:");
+                            String especialidade = in.nextLine();
+                            medicoService.atualizar(crm2, new Medico(nome, cpf, new Endereco(rua,bairro,cidade,estado,cep,numero,complemento), crm, especialidade));
+                        } else if (yes_or_no == 2){
 
+                        } else {
+                            System.out.println("Escolha invalida");
+                        }
                     } else if (escolhaMedico == 4) {
 
                     }

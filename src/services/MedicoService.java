@@ -12,19 +12,19 @@ public class MedicoService {
     }
 
     public void criar(Medico medico) throws CPFException, NomeException, EspecialException, EnderecoException, CRMException {
-        if(medico.getCrm().length() == 6){
+        if(medico.getCrm().length() != 6){
             throw new CRMException();
-        } else if (medico.getNome() != null) {
+        } else if (medico.getNome() == null) {
             throw new NomeException();
-        } else if (medico.getEspecialidade() != null) {
+        } else if (medico.getEspecialidade() == null) {
             throw new EspecialException();
-        } else if (medico.getEndereco() != null || medico.getEndereco().getRua() != null ||
-                medico.getEndereco().getBairro() != null || medico.getEndereco().getCidade() != null
-                || medico.getEndereco().getCep() != null || medico.getEndereco().getComplemento() != null
-                || medico.getEndereco().getEstado() != null || medico.getEndereco().getNumero() != null)
+        } else if (medico.getEndereco() == null || medico.getEndereco().getRua() == null ||
+                medico.getEndereco().getBairro() == null || medico.getEndereco().getCidade() == null
+                || medico.getEndereco().getCep() == null || medico.getEndereco().getComplemento() == null
+                || medico.getEndereco().getEstado() == null || medico.getEndereco().getNumero() == null)
         {
             throw new EnderecoException();
-        } else if (medico.getCfp().length() == 11) {
+        } else if (medico.getCpf().length() != 11) {
             throw new CPFException();
         } else {
             medicoRepository.criar(medico);
@@ -38,7 +38,7 @@ public class MedicoService {
     }
     public void deletar(String crm) throws CRMException{
         Medico medico1 = medicoRepository.buscar(crm);
-        if(medico1!=null){
+        if(medico1==null){
             throw new CRMException();
         }else{
             medicoRepository.deletar(medico1);

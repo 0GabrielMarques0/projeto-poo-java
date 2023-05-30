@@ -22,7 +22,7 @@ public class Pessoa{
         this.nome = nome;
     }
 
-    public String getCfp() {
+    public String getCpf() {
         return cpf;
     }
 
@@ -40,8 +40,7 @@ public class Pessoa{
 
     @Override
     public String toString() {
-        return "Pessoa{" +
-                "nome='" + nome + '\'' +
+        return  "nome='" + nome + '\'' +
                 ", cpf='" + cpf + '\'' +
                 ", endereco=" + endereco +
                 '}';
