@@ -2,6 +2,8 @@ package repositories;
 
 import models.Medico;
 
+import java.util.Arrays;
+
 public class MedicoRepositoryVetor implements MedicoRepository{
 
     private Medico[] medico;
